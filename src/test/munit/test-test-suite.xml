@@ -3,7 +3,7 @@
 <mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
 http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
-    <munit:config mock-connectors="false" name="munit" doc:name="MUnit configuration" mock-inbounds="false"/>
+    <munit:config mock-connectors="false" mock-inbounds="false" name="munit" doc:name="MUnit configuration"/>
     <spring:beans>
         <spring:import resource="classpath:test.xml"/>
     </spring:beans>
@@ -14,5 +14,9 @@ http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/cor
     <munit:test name="test-test-suite-mavenCustomerssFlowTest" description="Test">
         <flow-ref name="mavenCustomerssFlow" doc:name="Flow-ref to mavenCustomerssFlow"/>
         <munit:assert-on-equals message="test failed" expectedValue="#['This is the message from Customers Flow']" actualValue="#[payload]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="test-test-suite-testForNotNullFromDatabaseFlowTest" description="Test">
+        <flow-ref name="mavenFlow" doc:name="Flow-ref to mavenFlow"/>
+        <munit:assert-not-null message="Testing for Not Null Payload failed" doc:name="Assert Not Null Payload"/>
     </munit:test>
 </mule>
