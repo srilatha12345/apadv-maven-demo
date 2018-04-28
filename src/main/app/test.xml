@@ -20,6 +20,10 @@ http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/jso
         <http:listener config-ref="HTTP_Listener_Configuration" path="/accounts" allowedMethods="GET" doc:name="HTTP"/>
         <set-payload value="#['This is the message from Accounts Flow']" doc:name="Set Payload"/>
     </flow>
+    <flow name="mavenCustomerssFlow">
+        <http:listener config-ref="HTTP_Listener_Configuration" path="/accounts" allowedMethods="GET" doc:name="HTTP"/>
+        <set-payload value="#['This is the message from Customers Flow']" doc:name="Set Payload"/>
+    </flow>
     <flow name="mavenFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/" doc:name="HTTP"/>
         <db:select config-ref="MySQL_Configuration" doc:name="Database">
