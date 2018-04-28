@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+    <munit:config mock-connectors="false" name="munit" doc:name="MUnit configuration" mock-inbounds="false"/>
+    <spring:beans>
+        <spring:import resource="classpath:test.xml"/>
+    </spring:beans>
+    <munit:test name="test-test-suite-mavenAccountsFlowTest" description="Test">
+        <flow-ref name="mavenAccountsFlow" doc:name="Flow-ref to mavenAccountsFlow"/>
+        <munit:assert-payload-equals message="Test Failed" expectedValue="#['This is the message from Accounts Flow']" doc:name="Assert Payload"/>
+    </munit:test>
+    <munit:test name="test-test-suite-mavenCustomerssFlowTest" description="Test">
+        <flow-ref name="mavenCustomerssFlow" doc:name="Flow-ref to mavenCustomerssFlow"/>
+        <munit:assert-on-equals message="test failed" expectedValue="#['This is the message from Customers Flow']" actualValue="#[payload]" doc:name="Assert Equals"/>
+    </munit:test>
+</mule>
