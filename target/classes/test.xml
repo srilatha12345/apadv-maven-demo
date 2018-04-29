@@ -19,7 +19,7 @@ http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee
     </flow>
     <flow name="mavenAccountsFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/accounts" allowedMethods="GET" doc:name="HTTP"/>
-        <set-payload value="#['This is the message from  Flow']" doc:name="Set Payload"/>
+        <set-payload value="#['This is the message from Accounts Flow']" doc:name="Set Payload"/>
     </flow>
     <flow name="mavenCustomerssFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/products" allowedMethods="GET" doc:name="HTTP"/>
