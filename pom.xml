@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mycompany</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>maven-demo-project-skante</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
 	<name>Mule test Application</name>
@@ -14,11 +14,11 @@
 
 		<mule.version>3.9.0</mule.version>
 		<mule.tools.version>1.2</mule.tools.version>
-	<munit.version>1.3.7</munit.version>
-    <mule.munit.support.version>3.9.1</mule.munit.support.version>
-    <uid>skante13</uid>
-    <pwd></pwd>
-    </properties>
+		<munit.version>1.3.7</munit.version>
+		<mule.munit.support.version>3.9.1</mule.munit.support.version>
+		<uid>skante13</uid>
+		<pwd></pwd>
+	</properties>
 
 	<build>
 		<plugins>
@@ -32,28 +32,28 @@
 				</configuration>
 			</plugin>
 			<plugin>
-    <groupId>org.mule.tools.maven</groupId>
-    <artifactId>mule-maven-plugin</artifactId>
-    <version>2.0</version>
-    <configuration>
-        <deploymentType>cloudhub</deploymentType>
-        <muleVersion>${mule.version}</muleVersion>
-        <username>${uid}</username>
-        <password>${pwd}</password>
-	      <workerType>Micro</workerType>
-        <redeploy>true</redeploy>
-        <environment>Sandbox</environment>
-    </configuration>
-    <executions>
-        <execution>
-            <id>deploy</id>
-            <phase>deploy</phase>
-            <goals>
-                <goal>deploy</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+					<muleVersion>${mule.version}</muleVersion>
+					<username>${uid}</username>
+					<password>${pwd}</password>
+					<workerType>Micro</workerType>
+					<redeploy>true</redeploy>
+					<environment>Sandbox</environment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -81,38 +81,38 @@
 					</execution>
 				</executions>
 			</plugin>
-		<plugin>
-                <groupId>com.mulesoft.munit.tools</groupId>
-                <artifactId>munit-maven-plugin</artifactId>
-                <version>${munit.version}</version>
-                <executions>
-                    <execution>
-                        <id>test</id>
-                        <phase>test</phase>
-                        <goals>
-                            <goal>test</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <coverage>
-                        <runCoverage>true</runCoverage>
-                        <formats>
-                            <format>html</format>
-                        </formats>
-                    </coverage>
-                </configuration>
-            </plugin>
-        </plugins>
-	<testResources>
-            <testResource>
-                <directory>src/test/munit</directory>
-            </testResource>
-        <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-        </testResources>
-    </build>
+			<plugin>
+				<groupId>com.mulesoft.munit.tools</groupId>
+				<artifactId>munit-maven-plugin</artifactId>
+				<version>${munit.version}</version>
+				<executions>
+					<execution>
+						<id>test</id>
+						<phase>test</phase>
+						<goals>
+							<goal>test</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<coverage>
+						<runCoverage>true</runCoverage>
+						<formats>
+							<format>html</format>
+						</formats>
+					</coverage>
+				</configuration>
+			</plugin>
+		</plugins>
+		<testResources>
+			<testResource>
+				<directory>src/test/munit</directory>
+			</testResource>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+		</testResources>
+	</build>
 
 	<!-- Mule Dependencies -->
 	<dependencies>
@@ -163,10 +163,10 @@
 		</dependency>
 		<!-- MUnit Modules -->
 		<dependency>
-    <groupId>org.mockito</groupId>
-    <artifactId>mockito-all</artifactId>
-    <version>1.8.2</version>
-</dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>1.8.2</version>
+		</dependency>
 
 		<!-- Mule Modules -->
 		<dependency>
@@ -224,25 +224,25 @@
 			<version>${mule.version}</version>
 			<scope>provided</scope>
 		</dependency>
-	<dependency>
-            <groupId>com.mulesoft.munit</groupId>
-            <artifactId>mule-munit-support</artifactId>
-            <version>${mule.munit.support.version}</version>
-            <scope>test</scope>
-        </dependency>
-    <dependency>
-            <groupId>com.mulesoft.munit</groupId>
-            <artifactId>munit-runner</artifactId>
-            <version>${munit.version}</version>
-            <scope>test</scope>
-        </dependency>
-    <dependency>
-            <groupId>com.mulesoft.weave</groupId>
-            <artifactId>mule-plugin-weave</artifactId>
-            <version>${mule.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>mule-munit-support</artifactId>
+			<version>${mule.munit.support.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.munit</groupId>
+			<artifactId>munit-runner</artifactId>
+			<version>${munit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.weave</groupId>
+			<artifactId>mule-plugin-weave</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 
 	<repositories>
 		<repository>
