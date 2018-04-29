@@ -1,7 +1,0 @@
-SUCCESS - Test test-test-suite-mavenCustomerssFlowTest finished Successfully.
-SUCCESS - Test test-test-suite-mavenAccountsFlowTest finished Successfully.
-SUCCESS - Test test-test-suite-testForNotNullFromDatabaseFlowTest finished Successfully.
-
-=============================================================================
-Tests run: 3 - Failures: 0 - Errors: 0 - Skipped: 0 - Time elapsed: 5.844 sec
-=============================================================================
